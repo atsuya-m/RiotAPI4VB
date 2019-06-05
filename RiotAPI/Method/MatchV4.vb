@@ -209,6 +209,26 @@ Public Class Participantidentity
 End Class
 
 
+'matchlist
+Public Class MatchlistDto
+    Public Property matches() As Match
+    Public Property endIndex As Integer
+    Public Property startIndex As Integer
+    Public Property totalGames As Integer
+End Class
+
+Public Class Match
+    Public Property lane As String
+    Public Property gameId As Integer
+    Public Property champion As Integer
+    Public Property platformId As String
+    Public Property timestamp As Long
+    Public Property queue As Integer
+    Public Property role As String
+    Public Property season As Integer
+End Class
+
+
 'timeline
 Public Class MatchTimelineDto
     Public Property frames As Frame()
@@ -262,19 +282,21 @@ Public Class _Event
     Public Property towerType As String
 End Class
 
+
 Partial Public Class Client
     Public Function GetMatches(matchId As String) As MatchDto
         Dim url = "/lol/match/v4/matches/"
-        Dim param As String = matchId
-
-        Return Newtonsoft.Json.JsonConvert.DeserializeObject(Of MatchDto)(request(url + param))
+        Return Newtonsoft.Json.JsonConvert.DeserializeObject(Of MatchDto)(request(url + matchId))
     End Function
 
-    Public Function MatchV4_timelines(matchId As String) As MatchTimelineDto
-        Dim url = "/lol/match/v4/timelines/by-match/"
-        Dim param As String = matchId
+    Public Function GetMatchlistsByAccountID(encryptedAccountId As String) As MatchlistDto
+        Dim url = "/lol/match/v4/matchlists/by-account/"
+        Return Newtonsoft.Json.JsonConvert.DeserializeObject(Of MatchlistDto)(request(url + encryptedAccountId))
+    End Function
 
-        Return Newtonsoft.Json.JsonConvert.DeserializeObject(Of MatchTimelineDto)(request(url + param))
+    Public Function GetTimelinesByMatch(matchId As String) As MatchTimelineDto
+        Dim url = "/lol/match/v4/timelines/by-match/"
+        Return Newtonsoft.Json.JsonConvert.DeserializeObject(Of MatchTimelineDto)(request(url + matchId))
     End Function
 
 End Class

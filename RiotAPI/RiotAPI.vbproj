@@ -68,7 +68,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Method\ChampionMasteryV4.vb" />
     <Compile Include="Method\ChampionsDTO.vb" />
+    <Compile Include="Method\ChampionV3.vb" />
+    <Compile Include="Method\LOLStatusV4.vb" />
     <Compile Include="Method\MatchV4.vb" />
     <Compile Include="RiotAPI.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

@@ -12,7 +12,7 @@ namespace APITestCS
         static void Main(string[] args)
         {
             RiotAPI.Client riotAPI = new RiotAPI.Client("SET_YOUR_API_KEY");
-            Console.WriteLine(riotAPI.GetSummonersByName("Atsuya M").id);
+            Console.WriteLine(riotAPI.GetSummonersByName("SUMMONER_NAME").id);
         }
     }
 }

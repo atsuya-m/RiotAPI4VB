@@ -58,5 +58,3 @@ Public Class Statss
     Public Property attackspeedoffset As Single
     Public Property attackspeedperlevel As Single
 End Class
-
-

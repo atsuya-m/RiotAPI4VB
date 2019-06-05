@@ -45,7 +45,6 @@ Public Class Client
     End Function
 
 
-
     Private Shared Function OnResolveAssembly(sender As Object, args As ResolveEventArgs) As Assembly
         Try
             'gets the main Assembly

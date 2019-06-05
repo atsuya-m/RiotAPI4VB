@@ -1,8 +1,10 @@
 ﻿Module Module1
 
     Sub Main()
-        Dim riot As RiotAPI.Client = New RiotAPI.Client("SET_YOUR_API_KEY")
-        Console.WriteLine(riot.GetSummonersByName("Atsuya M").id)
+        Dim client = New RiotAPI.Client("SET_YOUR_API_KEY")
+        Console.WriteLine(client.GetSummonersByName("SUMMONER_NAME").id)
+
+        Console.ReadLine()
     End Sub
 
 End Module
