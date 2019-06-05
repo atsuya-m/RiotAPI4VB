@@ -1,6 +1,6 @@
 # RiotAPI4NET
 This is a wrapper for RiotAPI written in VisualBasic and include some sample projects written in CSharp and VisualBasic. 
-You can only use this in __JP__ service region. If I get some comments or reactions, I update. 
+You can only use this in __JP__ service region. If I get any feedback, I will update. 
 
 # Compatible end points 
 - CHAMPION-MASTERY-V4
