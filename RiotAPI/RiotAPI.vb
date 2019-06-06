@@ -12,6 +12,12 @@ Public Class Client
         AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf OnResolveAssembly
     End Sub
 
+    Public Sub New(key As String, region As Region)
+        Me.key = key
+        Me.endPoint = Regions.dictionary(region)
+        AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf OnResolveAssembly
+    End Sub
+
     Private Function request(url As String) As String
         Dim req As WebRequest = WebRequest.Create(endPoint & url)
         req.Headers.Add("X-Riot-Token", key)
@@ -81,3 +87,35 @@ Public Class Client
         End Try
     End Function
 End Class
+
+Friend Class Regions
+    Public Shared ReadOnly Property dictionary As New Dictionary(Of Region, String) From {
+            {Region.BR, "br1.api.riotgames.com"},
+            {Region.EUNE, "eun1.api.riotgames.com"},
+            {Region.EUW, "euw1.api.riotgames.com"},
+        {Region.JP, "jp1.api.riotgames.com"},
+        {Region.KR, "kr.api.riotgames.com"},
+        {Region.LAN, "la1.api.riotgames.com"},
+        {Region.LAS, "la2.api.riotgames.com"},
+        {Region.NA, "na1.api.riotgames.com"},
+        {Region.OCE, "oc1.api.riotgames.com"},
+        {Region.TR, "tr1.api.riotgames.com"},
+        {Region.RU, "ru.api.riotgames.com"},
+        {Region.PBE, "pbe1.api.riotgames.com"}
+    }
+End Class
+
+Public Enum Region
+    JP = 0
+    BR
+    EUNE
+    EUW
+    KR
+    LAN
+    LAS
+    NA
+    OCE
+    TR
+    RU
+    PBE
+End Enum

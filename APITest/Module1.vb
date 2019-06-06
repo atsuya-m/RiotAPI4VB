@@ -2,7 +2,7 @@
 
     Sub Main()
         Dim client = New RiotAPI.Client("SET_YOUR_API_KEY")
-        Console.WriteLine(client.GetSummonersByName("SUMMONER_NAME").id)
+        Console.WriteLine(RiotAPI.Region.BR)
 
         Console.ReadLine()
     End Sub
