@@ -14,7 +14,7 @@ Public Class Client
 
     Public Sub New(key As String, region As Region)
         Me.key = key
-        Me.endPoint = Regions.dictionary(region)
+        Me.endPoint = "https://" + Regions.dictionary(region)
         AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf OnResolveAssembly
     End Sub
 
